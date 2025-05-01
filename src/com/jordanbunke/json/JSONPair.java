@@ -12,7 +12,7 @@ public record JSONPair(String key, Object value) {
         if (value instanceof String s)
             return QUOTE + s + QUOTE;
 
-        return value.toString();
+        return String.valueOf(value);
     }
 
     @Override
