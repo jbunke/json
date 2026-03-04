@@ -103,7 +103,11 @@ public final class JSONReader {
     }
 
     private static String readStringLit(final String enclosed) {
-        return enclosed.substring(1, enclosed.length() - 1);
+        return enclosed.substring(1, enclosed.length() - 1)
+                .replace("\\n", "\n")
+                .replace("\\t", "\t")
+                .replace("\\\"", "\"")
+                .replace("\\\\", "\\");
     }
 
     private static boolean isInteger(final String string) {
